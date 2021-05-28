@@ -28,7 +28,6 @@
 #include <sys/types.h>
 #include <sys/syscall.h>
 
-#define gettid() syscall(SYS_gettid)
 #define PRINTPID \
     US_DEBUG("pid=%d, ptid=%lu, tid=%d", getpid(), pthread_self(), gettid())
 

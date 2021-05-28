@@ -22,9 +22,8 @@
 #include <semaphore.h>
 
 #include "hpre_rsa.h"
-#include "wd_rsa.h"
+#include "v1/wd_rsa.h"
 #include "../wdmngr/wd_queue_memory.h"
-#include "wd_rsa.h"
 
 
 #define UNSET            0

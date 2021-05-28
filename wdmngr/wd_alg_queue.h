@@ -19,7 +19,7 @@
 #ifndef __WD_ALG_QUEUE_H
 #define __WD_ALG_QUEUE_H
 
-#include "wd.h"
+#include "v1/wd.h"
 #include "engine_utils.h"
 
 struct wd_queue* wd_new_queue(int algtype);

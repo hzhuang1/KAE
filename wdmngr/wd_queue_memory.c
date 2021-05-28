@@ -21,7 +21,7 @@
 #include "wd_queue_memory.h"
 #include "engine_utils.h"
 #include "engine_log.h"
-#include "wd_bmm.h"
+#include "v1/wd_bmm.h"
 
 #define MAXBLOCKSIZE   0x90000
 #define MAXRSVMEM      0x400000

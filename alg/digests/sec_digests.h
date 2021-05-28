@@ -21,7 +21,7 @@
 
 #include <openssl/engine.h>
 #include <openssl/evp.h>
-#include "wd_digest.h"
+#include "v1/wd_digest.h"
 #include "wd_queue_memory.h"
 #include "engine_types.h"
 #include "engine_utils.h"

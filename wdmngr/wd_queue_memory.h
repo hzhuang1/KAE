@@ -20,7 +20,7 @@
 #define __WD_QUEUE_MEMORY_H
 
 #include <semaphore.h>
-#include "wd.h"
+#include "v1/wd.h"
 #include "wd_alg_queue.h"
 #include "engine_utils.h"
 

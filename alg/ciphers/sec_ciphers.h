@@ -26,7 +26,7 @@
 #ifndef SEC_CIPHERS_H
 #define SEC_CIPHERS_H
 #include <openssl/engine.h>
-#include "wd_cipher.h"
+#include "v1/wd_cipher.h"
 #include "wd_queue_memory.h"
 
 #define MAX_SEND_TRY_CNTS 50

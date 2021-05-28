@@ -22,7 +22,7 @@
 
 #include <openssl/dh.h>
 #include "wdmngr/wd_queue_memory.h"
-#include "wd_dh.h"
+#include "v1/wd_dh.h"
 
 struct hpre_dh_priv_ctx {
     DH* ssl_alg;

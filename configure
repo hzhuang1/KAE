@@ -9,8 +9,12 @@ elif [[ $# == 1 ]]; then
     elif [[ $1 == --wd_path=* ]]; then
         openssl_path=/usr/local
         wd_path=${1#*=}
+    elif [[ $1 == --uadk_path=* ]]; then
+	openssl_path=/usr/local
+        wd_path=${1#*=}
+	UADK=1
     else
-        echo "usage: ./configure [--openssl_path] [--wd_path=]"
+        echo "usage: ./configure [--openssl_path] [--wd_path=] [--uadk_path=]"
         exit 1;
     fi
 elif [[ $# == 2 ]]; then
@@ -21,7 +25,7 @@ elif [[ $# == 2 ]]; then
         wd_path=${1#*=}
         openssl_path=${2##*=}
     else
-        echo "usage: ./configure [--openssl_path=] [--wd_path=]"
+        echo "usage: ./configure [--openssl_path=] [--wd_path=] [--uadk_path=]"
         exit 1;
     fi
 else
@@ -60,9 +64,15 @@ else
     sed -i "${line}a\LDFLAGS   += -Wl,-rpath,$openssl_path/lib:$wd_path/lib" Makefile
 fi
 
-WD_PATH=./../drivers/warpdrive
-WD_SOURCE_PATH=/usr/local/include/warpdrive
-WD_RPM_PATH=/usr/include/warpdrive
+if [ ${UADK} ]; then
+    WD_PATH=./../drivers/uadk
+    WD_SOURCE_PATH=/usr/local/include/uadk
+    WD_RPM_PATH=/usr/include/uadk
+else
+    WD_PATH=./../drivers/warpdrive
+    WD_SOURCE_PATH=/usr/local/include/warpdrive
+    WD_RPM_PATH=/usr/include/warpdrive
+fi
 grep -n "INCDIR += -I ${WD_PATH} -I ${WD_PATH}/include" Makefile > /dev/null
 if [ $? = 0 ]; then
     include_line=($(grep -n "INCDIR += -I ${WD_PATH} -I ${WD_PATH}/include" Makefile | cut -d ':' -f 1))
